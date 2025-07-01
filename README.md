@@ -7,11 +7,14 @@ The purpose of this assignment is to practice loading a CSV datset and create li
 
 # Tools and Libraries for Python Notebook:
 pandas: offers tools for working with tables of data, allowing users to read, transform, and summarize datasets.
+
 matplotlib: tool used for creating plots and charts.
+
 scikit-learn: used to build models (we imported the LinearRegression model from this library).
 
 # Tools and Libraries for R Notebook:
 ggplot2: allows advanced plotting (ggplot2 is installed to my environment).
+
 After installation, packages must be loaded using library().
 
 # Results
@@ -26,18 +29,28 @@ The purpose of this part of the assignment is to learn how to convert notebooks 
 
 # Python Script Tools and Notes
 Import the same libraries as above, as well as the one below.
+
 sys: allows command line arguments (sys.argv).
+
 Create an argument using sys.argv, and the three arguments are filename, x_col, and y_col.
+
 Replace the Jupyter Notebook code with argument syntax in the proper locations.
+
 Additionally, use plt.savefig("filename") to export the image of the graph.
 
 # R Script Tools and Notes
 Import the ggplot as above.
+
 args: allows command line arguments.
+
 Create an argument using args, adn the three arguments are filename, x_col, and y_col.
+
 Replace the Jupyter Notebook code with the argument syntax in the proper locations.
+
 Note: aes_string is not that compatible with my version of R, so I had to modify the code (just used aes).
+
 Note: I converted the strings to symbols for tidy evaluation. When incorporated into the graph code, I used !! to tell R that the symbols are NOT part of dataset, and to not look for them there (because of how I set up the code, R will automatically look for variables within dataset first unless I tell it otherwise).
+
 Note: Even though dataset is in the main ggplot(), I still specificied in the geom_line code to avoid confusion.
 
 # Running Python Script in Command Line:
