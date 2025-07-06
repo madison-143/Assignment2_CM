@@ -1,64 +1,38 @@
-This is my README file for assignment 2 (Casey Madison)
+This is my README file for assignment 3 (Casey Madison): This README file will describe the repository
 
-### Jupyter Notebook: Assignment 2 Part 1
+# Assignment 3 Notebooks and Scripts: Jupyter notebooks designed to enhance regression analysis from Assignment 2 with detailed diagnostics and annotated plots (Python and R). 
 
-# Purpose: 
-The purpose of this assignment is to practice loading a CSV datset and create linear regression models in Jupyter Notebooks using Python and R. Additionally, we learned how to create and export a graph depicting the model's performance.
+### Purpose
+The purpose of this assignment is to expand off of Assignment 2 with more practice working with detailed model stats and graphing commands.
 
-# Tools and Libraries for Python Notebook:
-pandas: offers tools for working with tables of data, allowing users to read, transform, and summarize datasets.
+### Tools and libraries (Python):
 
-matplotlib: tool used for creating plots and charts.
+pandas - offers tools for working with tables of data, allowing users to read, transform, and summarize datasets
 
-scikit-learn: used to build models (we imported the LinearRegression model from this library).
+numpy - tools for numerical and scientific computing in Python
 
-# Tools and Libraries for R Notebook:
-ggplot2: allows advanced plotting (ggplot2 is installed to my environment).
+matplotlib - tools used for creating plots and charts
 
-After installation, packages must be loaded using library().
+scikit-learn - used to build models (LinearRegression)
 
-# Results
-Python Notebook: I was able to graph the plot and linear regression line. Additionally, I added a legend and an annotation of the r2 value on to the graph.
+plt is part of matplotlib, which is very important for python graphing. sklearn.metrics imports the capabilities to calculate mean squared error, an important metric for determining linear model fit. I shortened the x and y variables to a defined value (X and Y), so I didn't have to type out YearsExperience and Salary every time. Also, I needed to convert scalar to normal float in order to calculate slope and intercept. I like having fun with graphs, so I added a legend! With plt, this is very easy: plt.legend(). It is not so simple in R with ggplot2. An R2 value was included for another metric of linear regression model fit: model.score(x, y).
 
-R Notebook: I graphed the plot and linear regression line with no additional aspects. However, I did mess around with the colors.
+### Tools and Libraries (R):
 
-### Scripting in R and Python: Assignment 2 Part 2
+ggplot2 - essential package for creating graphs.
 
-# Purpose
-The purpose of this part of the assignment is to learn how to convert notebooks into scripts using arguments, and the scripts should be able to be run from the command line.
+ggplot2 is a package that I incorporated into my environment, so I didn't have to install it every single time. You do need to load it into the notebook every time with library(ggplot2). In my opinion, adding annotations and other aspects to graphs in R is much harder than python, but I managed. Annotations are added using annotate("text", x-position, y-position, color, label = paste(text)), and I added a legend using scale_color_manual. scale_color_manual allows you to put your labels in the "color" spot. For example, in geom_point, I have color = "Data points". Later in the code, I specify that the actual color is green via "Data points" = "green". This can be used for multiple purposes, but it allowed me to create a legend.
 
-# Python Script Tools and Notes
-Import the same libraries as above, as well as the one below.
+### Scripts:
+Scripts were run very similarly to Assignment 2. However, I did set it up so the stats (r, r2, slope, intercept, mse) printed to the console after running the script. For python, this is as simple as using the print function and f", for example: print(f"slope is {slope}"). For R, I used the cat() function. The line setup for this is as follows: cat("Slope:", slope, "\n"). Text is in quotations ("Slope:") the calculation I want to run is NOT in quotes (slope), and \n at the end means new line. 
 
-sys: allows command line arguments (sys.argv).
+Running Scripts:
 
-Create an argument using sys.argv, and the three arguments are filename, x_col, and y_col.
+Python: python linear_model.py regression_data.csv YearsExperience Salary
+R: Rscript linear_model.r regression_data.csv YearsExperience Salary
 
-Replace the Jupyter Notebook code with argument syntax in the proper locations.
+### Results:
 
-Additionally, use plt.savefig("filename") to export the image of the graph.
-
-# R Script Tools and Notes
-Import the ggplot as above.
-
-args: allows command line arguments.
-
-Create an argument using args, adn the three arguments are filename, x_col, and y_col.
-
-Replace the Jupyter Notebook code with the argument syntax in the proper locations.
-
-Note: aes_string is not that compatible with my version of R, so I had to modify the code (just used aes).
-
-Note: I converted the strings to symbols for tidy evaluation. When incorporated into the graph code, I used !! to tell R that the symbols are NOT part of dataset, and to not look for them there (because of how I set up the code, R will automatically look for variables within dataset first unless I tell it otherwise).
-
-Note: Even though dataset is in the main ggplot(), I still specificied in the geom_line code to avoid confusion.
-
-# Running Python Script in Command Line:
-python python_linear_regression.py regression_data.csv YearsExperience Salary
-
-# Running R Script in Command Line:
-Rscript r_linear_regression.r regression_data.csv YearsExperience Salary
-
-
+I was able to graph the plot, linear regression, legend, and annotations to the graph. Additionally, I calculated r, r2, mse, slope, and y-intercept. The MSE value was very large, the r and r2 values were around 0.8 and 0.7, respectively, which does not indicate good fit. The y-intercept was 29203, which means with 0 years of experience, the predicted salary is $29,203. The slope was 8285, which means with every 1 year of added experience, the salary is predicted to increase by $8,285. Because the linear model has bad fit, predictions should be considered a loose estimate.
 
 
